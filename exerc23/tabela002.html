@@ -7,45 +7,71 @@
     <title>Tabelas</title>
     <style>
         body {
-            background-color: rgb(240, 237, 229);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
             
+            background-color: rgb(240, 237, 229);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;            
+        }
+        h1 {
+            text-align: center;
         }
         table {
             background-color: white;
             width: 500px;
             border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
         }
         td, th {
             border: 1px solid black;
             padding: 10px;
         }
-        thead {
+        caption {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: rgb(6, 95, 155);
+
+        }
+        thead, tfoot {
             background-color: lightblue;
             
         }
+        thead > tr> th {
+            position: sticky;
+            top: -1px;
+            background-color: lightblue;
+        }
+        tbody > tr:nth-child(2n) {
+            background-color: rgb(224, 237, 241);
+        }
         td.posicao {
-            width: 30px;
             text-align: center;
         }
         td.num {
             text-align: right;
 
         }
+        td.total{
+            text-align: center;
+        }
         td.rodape {
             font-size: 1.5vw;
             text-align: center;
         }
+       
     </style>
 </head>
 <body>
     <h1>Uso de tabelas grandes</h1>
     <table>
+        <caption>População das Unidades Federativas</caption>
         <thead>
             <tr>
-                <th>Posição</th>
-                <th>Estado</th>
-                <th>População</th>
+                <th scope="col">Posição</th>
+                <th scope="col">Estado</th>
+                <th scope="col" style="width: 50px;">População</th>
             </tr>
         </thead>
         <tbody>
@@ -187,8 +213,8 @@
 
         </tbody>
         <tfoot>
-            <tr><td></td>
-                <th>Total de habitantes</th>
+            <tr>
+                <td colspan="2" class="total" scope="row"><strong>Total de habitantes</strong></td>
                 <td class="num"><strong>213.317.639</strong></td>
             </tr>
             <tr>
